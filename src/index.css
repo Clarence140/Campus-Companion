@@ -1,4 +1,4 @@
-/* src/index.css */
+@import url("https://fonts.googleapis.com/css2?family=Chicle&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +7,10 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
+}
+
+.font-chicle {
+  font-family: "Chicle", cursive;
 }
 
 /* Dark mode transitions */

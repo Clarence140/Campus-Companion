@@ -454,8 +454,16 @@ export default function FAQ({ darkMode }) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6 text-center">
+    <div
+      className={`max-w-4xl mx-auto bg-white dark:bg-gray-900 ${
+        darkMode ? "text-gray-100" : "text-gray-900"
+      }`}
+    >
+      <h2
+        className={`text-2xl font-bold mb-6 text-center ${
+          darkMode ? "text-gray-100" : "text-gray-900"
+        }`}
+      >
         Frequently Asked Questions
       </h2>
 

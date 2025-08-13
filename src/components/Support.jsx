@@ -10,7 +10,7 @@ export default function Support({ darkMode }) {
   return (
     <div
       className={`max-w-4xl mx-auto p-6 rounded-lg shadow-lg ${
-        darkMode ? "bg-gray-800" : "bg-white"
+        darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"
       }`}
     >
       <h2 className="text-3xl font-bold mb-6 text-center text-blue-600 dark:text-blue-400">
@@ -61,7 +61,7 @@ export default function Support({ darkMode }) {
                 onClick={() => setZoomedImage("/images/Gcash.jpg")}
               >
                 <img
-                  src="/images/Gcash.jpg"
+                  src="/placeholder.svg?height=256&width=256"
                   alt="GCash QR Code"
                   className="w-full h-full object-contain group-hover:opacity-90 transition-opacity duration-200"
                 />
@@ -87,7 +87,7 @@ export default function Support({ darkMode }) {
                 onClick={() => setZoomedImage("/images/Maya.jpg")}
               >
                 <img
-                  src="/images/Maya.jpg"
+                  src="/placeholder.svg?height=256&width=256"
                   alt="Maya QR Code"
                   className="w-full h-full object-contain group-hover:opacity-90 transition-opacity duration-200"
                 />

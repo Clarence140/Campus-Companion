@@ -1167,15 +1167,25 @@ function TermBasedCalculator({ darkMode, getMotivationalMessage }) {
 function App() {
   const [currentView, setCurrentView] = useState("calculator");
   const [darkMode, setDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem("darkMode");
-    return savedMode ? JSON.parse(savedMode) : false;
+    try {
+      const savedMode = localStorage.getItem("darkMode");
+      return savedMode ? JSON.parse(savedMode) : false;
+    } catch (error) {
+      console.warn("Failed to load dark mode preference:", error);
+      return false;
+    }
   });
   const [activeTab, setActiveTab] = useState("k12");
   const [showInstructions, setShowInstructions] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+    try {
+      localStorage.setItem("darkMode", JSON.stringify(darkMode));
+    } catch (error) {
+      console.warn("Failed to save dark mode preference:", error);
+    }
+
     if (darkMode) {
       document.documentElement.classList.add("dark");
     } else {
@@ -1211,13 +1221,17 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
+    <div
+      className={`min-h-screen ${
+        darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-50 text-gray-900"
+      }`}
+    >
       <div className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
         <header className="bg-blue-600 dark:bg-blue-800 text-white p-4 shadow-md">
           <div className="container mx-auto flex justify-between items-center">
             <div className="flex items-center space-x-3">
               <img
-                src="/images/CampusCalcu.png"
+                src="/placeholder.svg?height=40&width=40"
                 alt="Campus Companion PH"
                 className="w-10 h-10 rounded-full"
               />
